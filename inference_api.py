@@ -450,11 +450,12 @@ def startup_event() -> None:
 
 
 @app.get("/health")
-def health() -> dict:
+def health():
     return {
         "status": "ok",
-        "device": str(app.state.device),
-        "model_path": app.state.model_path,
+        "device": str(getattr(app.state, "device", "not_loaded")),
+        "model_loaded": hasattr(app.state, "model"),
+        "model_path": getattr(app.state, "model_path", "not_set"),
     }
 
 
