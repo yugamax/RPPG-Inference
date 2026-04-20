@@ -20,4 +20,4 @@ COPY . .
 
 EXPOSE 10000
 
-CMD ["sh", "-c", "uvicorn inference_api:app --host 0.0.0.0 --port ${PORT:-10000}"]
+CMD ["sh", "-c", "uvicorn inference_api:app --host 0.0.0.0 --port $PORT"]
