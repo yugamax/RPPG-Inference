@@ -18,6 +18,6 @@ RUN pip install --no-cache-dir --upgrade pip && \
 
 COPY . .
 
-EXPOSE 10000
+EXPOSE 8080
 
-CMD ["sh", "-c", "uvicorn inference_api:app --host 0.0.0.0 --port $PORT"]
+CMD ["uvicorn", "inference_api:app", "--host", "0.0.0.0", "--port", "8080"]
